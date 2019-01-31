@@ -1,4 +1,4 @@
-package com.popularvenues.api.client.exception;
+package com.popularvenues.api.exception;
 
 public class ConsumerClientException extends RuntimeException {
 

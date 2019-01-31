@@ -1,7 +1,7 @@
 package com.popularvenues.api.integration;
 
 import com.popularvenues.api.client.VenuesConsumerClient;
-import com.popularvenues.api.client.exception.ConsumerClientException;
+import com.popularvenues.api.exception.ConsumerClientException;
 import com.popularvenues.api.client.domain.Venue;
 import org.junit.Rule;
 import org.junit.Test;
@@ -42,6 +42,6 @@ public class VenuesConsumerClientIntegrationTest {
         expectedException.expectMessage("Location server not reachable, please try again later.");
 
         String testNear = null;
-        List<Venue> popularVenues = venuesConsumerClient.getPopularVenues(testNear);
+        venuesConsumerClient.getPopularVenues(testNear);
     }
 }
