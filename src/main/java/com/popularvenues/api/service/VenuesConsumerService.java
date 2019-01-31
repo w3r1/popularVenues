@@ -1,10 +1,10 @@
 package com.popularvenues.api.service;
 
-import com.popularvenues.api.domain.Venue;
+import com.popularvenues.api.domain.PopularVenue;
 
 import java.util.List;
 
 public interface VenuesConsumerService {
 
-    List<Venue> getPopularVenues(String near);
+    List<PopularVenue> getPopularVenues(String near);
 }

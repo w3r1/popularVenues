@@ -1,6 +1,8 @@
 package com.popularvenues.api.service;
 
 import com.popularvenues.api.client.VenuesConsumerClient;
+import com.popularvenues.api.domain.Location;
+import com.popularvenues.api.domain.PopularVenue;
 import com.popularvenues.api.domain.Venue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,11 +32,26 @@ public class VenuesConsumerServiceTest {
 
         String testNear = "London";
 
-        String testVenueName = "testVenue";
+        String testVenueName = "venue";
+        String testAddress = "address";
+        given(venuesConsumerClient.getPopularVenues(eq(testNear)))
+                .willReturn(asList(new Venue(testVenueName, Location.builder().address(testAddress).build())));
+
+        List<PopularVenue> popularVenues = venuesConsumerService.getPopularVenues(testNear);
+        assertThat(popularVenues, hasItem(hasProperty("name", equalTo(testVenueName))));
+        assertThat(popularVenues, hasItem(hasProperty("address", equalTo(testAddress))));
+    }
+
+    @Test
+    public void shouldNotGetPopularVenuesWhenLocationsNotProvided() {
+
+        String testNear = "London";
+
+        String testVenueName = "venue";
         given(venuesConsumerClient.getPopularVenues(eq(testNear)))
                 .willReturn(asList(new Venue(testVenueName, null)));
 
-        List<Venue> popularVenues = venuesConsumerService.getPopularVenues(testNear);
-        assertThat(popularVenues, hasItem(hasProperty("name", equalTo(testVenueName))));
+        List<PopularVenue> popularVenues = venuesConsumerService.getPopularVenues(testNear);
+        assertThat(popularVenues, hasSize(0));
     }
 }
