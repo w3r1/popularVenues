@@ -4,7 +4,7 @@ import com.popularvenues.api.domain.PopularVenue;
 
 import java.util.List;
 
-public interface VenuesConsumerService {
+public interface VenuesService {
 
     List<PopularVenue> getPopularVenues(String near);
 }

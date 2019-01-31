@@ -1,9 +1,9 @@
 package com.popularvenues.api.service;
 
 import com.popularvenues.api.client.VenuesConsumerClient;
-import com.popularvenues.api.domain.Location;
+import com.popularvenues.api.client.domain.Location;
 import com.popularvenues.api.domain.PopularVenue;
-import com.popularvenues.api.domain.Venue;
+import com.popularvenues.api.client.domain.Venue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -19,13 +19,13 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 
 @RunWith(MockitoJUnitRunner.class)
-public class VenuesConsumerServiceTest {
+public class VenuesServiceTest {
 
     @Mock
     private VenuesConsumerClient venuesConsumerClient;
 
     @InjectMocks
-    private VenuesConsumerServiceImpl venuesConsumerService;
+    private VenuesServiceImpl venuesConsumerService;
 
     @Test
     public void shouldGetPopularVenues() {
@@ -33,13 +33,13 @@ public class VenuesConsumerServiceTest {
         String testNear = "London";
 
         String testVenueName = "venue";
-        String testAddress = "address";
+        String testVenueAddress = "address";
         given(venuesConsumerClient.getPopularVenues(eq(testNear)))
-                .willReturn(asList(new Venue(testVenueName, Location.builder().address(testAddress).build())));
+                .willReturn(asList(new Venue(testVenueName, Location.builder().address(testVenueAddress).build())));
 
         List<PopularVenue> popularVenues = venuesConsumerService.getPopularVenues(testNear);
         assertThat(popularVenues, hasItem(hasProperty("name", equalTo(testVenueName))));
-        assertThat(popularVenues, hasItem(hasProperty("address", equalTo(testAddress))));
+        assertThat(popularVenues, hasItem(hasProperty("address", equalTo(testVenueAddress))));
     }
 
     @Test

@@ -2,7 +2,7 @@ package com.popularvenues.api.integration;
 
 import com.popularvenues.api.client.VenuesConsumerClient;
 import com.popularvenues.api.client.exception.ConsumerClientException;
-import com.popularvenues.api.domain.Venue;
+import com.popularvenues.api.client.domain.Venue;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

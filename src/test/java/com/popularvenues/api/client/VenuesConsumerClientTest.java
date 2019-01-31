@@ -1,8 +1,8 @@
 package com.popularvenues.api.client;
 
+import com.popularvenues.api.client.domain.*;
 import com.popularvenues.api.client.exception.ConsumerClientException;
 import com.popularvenues.api.client.exception.ConsumerClientResponseEmptyException;
-import com.popularvenues.api.domain.*;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

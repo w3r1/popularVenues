@@ -2,13 +2,15 @@ package com.popularvenues.api.service;
 
 import com.popularvenues.api.client.VenuesConsumerClient;
 import com.popularvenues.api.domain.PopularVenue;
-import com.popularvenues.api.domain.Venue;
+import com.popularvenues.api.client.domain.Venue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class VenuesConsumerServiceImpl implements VenuesConsumerService {
+@Service
+public class VenuesServiceImpl implements VenuesService {
 
     @Autowired
     private VenuesConsumerClient venuesConsumerClient;

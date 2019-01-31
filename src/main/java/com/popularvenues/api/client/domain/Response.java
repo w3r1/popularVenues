@@ -1,4 +1,4 @@
-package com.popularvenues.api.domain;
+package com.popularvenues.api.client.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

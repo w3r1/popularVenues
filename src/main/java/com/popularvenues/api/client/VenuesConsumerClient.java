@@ -2,11 +2,10 @@ package com.popularvenues.api.client;
 
 import com.popularvenues.api.client.exception.ConsumerClientException;
 import com.popularvenues.api.client.exception.ConsumerClientResponseEmptyException;
-import com.popularvenues.api.domain.ClientResponse;
-import com.popularvenues.api.domain.Response;
-import com.popularvenues.api.domain.Venue;
+import com.popularvenues.api.client.domain.ClientResponse;
+import com.popularvenues.api.client.domain.Response;
+import com.popularvenues.api.client.domain.Venue;
 import io.vavr.control.Try;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
